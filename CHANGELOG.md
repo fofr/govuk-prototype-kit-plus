@@ -1,5 +1,20 @@
 # Unreleased
 
+## Fixes
+
+### Updated task list template
+
+The task list pattern has been updated with changes to the [task list pattern in the Design System](https://design-system.service.gov.uk/patterns/task-list-pages/).
+
+If you're upgrading from an older version, in `app/assets/sass/patterns/task-list.scss` add the line `.app-task-list__tag,` before `.app-task-list__task-completed {`:
+
+```scss
+.app-task-list__tag,
+.app-task-list__task-completed {
+```
+
+[#907 Update Task List template](https://github.com/alphagov/govuk-prototype-kit/pull/907)
+
 # 9.7.0 (Feature release)
 
 ## New features
