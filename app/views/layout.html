@@ -39,6 +39,10 @@
   GOV.UK Prototype Kit
 {% endblock %}
 
+{% block bodyStart %}
+  <div data-module="edge">
+{% endblock %}
+
 {% block header %}
   {# Set serviceName in config.js. #}
   {{ govukHeader({
@@ -71,6 +75,7 @@
 {% endif %}
 
 {% block bodyEnd %}
+  </div> <!-- </div data-module="edge"> -->
   {% block scripts %}
     {% include "includes/scripts.html" %}
     {% block pageScripts %}{% endblock %}
