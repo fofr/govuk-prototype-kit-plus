@@ -43,6 +43,10 @@
   <div data-module="edge">
 {% endblock %}
 
+{% block beforeContent %}
+  {% block pageNavigation %}{% endblock %}
+{% endblock %}
+
 {% block header %}
   {# Set serviceName in config.js. #}
   {{ govukHeader({
