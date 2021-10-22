@@ -1,7 +1,7 @@
 {
   "name": "govuk-prototype-kit",
   "description": "Rapidly create HTML prototypes of GOV.UK services",
-  "version": "9.14.1",
+  "version": "9.15.0",
   "private": true,
   "engines": {
     "node": ">=10.0.0 <16.0.0"
@@ -41,11 +41,6 @@
     "sync-request": "^6.0.0",
     "universal-analytics": "^0.4.16",
     "uuid": "^7.0.3"
-  },
-  "greenkeeper": {
-    "ignore": [
-      "nunjucks"
-    ]
   },
   "devDependencies": {
     "glob": "^7.1.4",
