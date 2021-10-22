@@ -193,14 +193,7 @@ if (promoMode === 'true') {
   })
 }
 
-// Load routes (found in app/routes.js)
-if (typeof (routes) !== 'function') {
-  console.log(routes.bind)
-  console.log('Warning: the use of bind in routes is deprecated - please check the Prototype Kit documentation for writing routes.')
-  routes.bind(app)
-} else {
-  app.use('/', routes)
-}
+app.use('/', routes)
 
 if (useDocumentation) {
   // Clone app locals to documentation app locals
