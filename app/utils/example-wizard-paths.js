@@ -10,6 +10,7 @@ function exampleWizardPaths (req) {
     '/example-wizard/where-do-you-live',
     '/example-wizard/england',
     '/example-wizard/nationality',
+    '/example-wizard/county',
     '/example-wizard/check',
     '/example-wizard/confirm',
     '/'
