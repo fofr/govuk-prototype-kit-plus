@@ -18,6 +18,11 @@ $govuk-assets-path: '/govuk/assets/';
 // Components that aren’t in Frontend
 @import "components/summary-card";
 
+// Extra autocomplete dropdown menu styles
+.autocomplete__menu {
+  @include govuk-font($size: 19);
+}
+
 // govuk-prototype-kit-plus additional helper methods
 .app-\!-inherit-colour {
   color: inherit !important;
