@@ -23,3 +23,12 @@ gulp.task('copy-assets-documentation', function () {
   ])
     .pipe(gulp.dest(config.paths.public))
 })
+
+gulp.task('copy-autocomplete', function () {
+  return gulp.src([
+    'node_modules/accessible-autocomplete/dist/*.js',
+    'node_modules/accessible-autocomplete/dist/*.css',
+    'node_modules/accessible-autocomplete/dist/*.map'
+  ])
+    .pipe(gulp.dest(`${config.paths.public}/accessible-autocomplete/`))
+})

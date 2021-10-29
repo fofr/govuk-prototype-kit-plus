@@ -23,7 +23,8 @@ gulp.task('generate-assets', gulp.series(
     'sass',
     'copy-assets',
     'sass-documentation',
-    'copy-assets-documentation'
+    'copy-assets-documentation',
+    'copy-autocomplete'
   )
 ))
 gulp.task('watch', gulp.parallel(
