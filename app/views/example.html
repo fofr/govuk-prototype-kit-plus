@@ -1,0 +1,122 @@
+{% extends "layout.html" %}
+{% set title = 'Dynamic prototyping' %}
+{% block pageTitle %}{{ title }}{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        {{ title }}
+      </h1>
+
+      <h2 class="govuk-heading-l">Log the thing</h2>
+      <p>
+        <code>{% raw %}{{ data | log }}{% endraw %}</code>
+      </p>
+
+      <h2 class="govuk-heading-l">Show the thing</h2>
+      <p>
+        <code>{% raw %}{{ data.thing }}{% endraw %}</code>:<br />
+        {{ data.thing }}
+      </p>
+      <p>
+        <code>{% raw %}{{ data['thing'] }}{% endraw %}</code>:<br />
+        {{ data['thing'] }}
+      </p>
+
+      <h2 class="govuk-heading-l">Update the thing</h2>
+      <form action="/example" method="post">
+        {{ govukInput({
+          label: {
+            text: "What is the thing",
+            classes: "govuk-label--s"
+          },
+          id: "thing",
+          name: "thing",
+          value: data.thing
+        }) }}
+
+        {{ govukButton({
+          text: "Save"
+        }) }}
+      </form>
+
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+      <h2 class="govuk-heading-l">Nested data</h2>
+
+      {% set caseId = 'ABC' %}
+
+      <p>
+        <code>{% raw %}{{ caseId }}{% endraw %}</code>:<br />
+        {{ caseId }}
+      </p>
+
+      <p>
+        <code>{% raw %}{{ data.cases[caseId].details.name }}{% endraw %}</code>:<br />
+        {{ data.cases[caseId].details.name }}
+      </p>
+
+      <form action="/example" method="post">
+        {{ govukInput({
+          label: {
+            text: "Name",
+            classes: "govuk-label--s"
+          },
+          id: "name",
+          name: "[cases]["+ caseId +"][details][name]",
+          value: data.cases[caseId].details.name
+        }) }}
+
+        {{ govukButton({
+          text: "Save name"
+        }) }}
+      </form>
+
+      <form action="/example" method="post">
+        {{ govukInput({
+          label: {
+            text: "Another case name",
+            classes: "govuk-label--s"
+          },
+          id: "name",
+          name: "[cases][123][details][name]",
+          value: data.cases[123].details.name
+        }) }}
+
+        {{ govukButton({
+          text: "Save another name"
+        }) }}
+      </form>
+
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+      <h2 class="govuk-heading-l">Using a helper to simplify the template</h2>
+
+      <form action="/example" method="post">
+        {{ govukInput({
+          label: {
+            text: "Name",
+            classes: "govuk-label--s"
+          }
+        } | decorateFormAttributes(['cases', caseId, 'details', 'name'])) }}
+
+        {{ govukInput({
+          label: {
+            text: "Last name",
+            classes: "govuk-label--s"
+          }
+        } | decorateFormAttributes(['cases', caseId, 'details', 'last-name'])) }}
+
+        {{ govukInput({
+          label: {
+            text: "Country",
+            classes: "govuk-label--s"
+          }
+        } | decorateFormAttributes(['cases', caseId, 'details', 'country'])) }}
+
+        {{ govukButton({
+          text: "Save name"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

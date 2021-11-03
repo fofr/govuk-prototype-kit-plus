@@ -1,0 +1,13 @@
+{% extends "_wizard-form.html" %}
+{% set title = 'What year was it released?' %}
+
+{% block form %}
+  {{ govukInput({
+    label: {
+      text: title,
+      classes: "govuk-label--xl",
+      isPageHeading: true
+    },
+    classes: 'govuk-!-width-one-quarter'
+  } | decorateFormAttributes(['example-list', movieId, 'year']) ) }}
+{% endblock %}

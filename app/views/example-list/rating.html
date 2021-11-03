@@ -1,0 +1,31 @@
+{% extends "_wizard-form.html" %}
+{% set title = 'How would you rate it?' %}
+
+{% block form %}
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: title,
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [
+      {
+        text: "Very good"
+      },
+      {
+        text: "Good"
+      },
+      {
+        text: "Average"
+      },
+      {
+        text: "Bad"
+      },
+      {
+        text: "Very bad"
+      }
+    ]
+  } | decorateFormAttributes(['example-list', movieId, 'rating']) ) }}
+{% endblock %}

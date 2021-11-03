@@ -1,0 +1,14 @@
+{% extends "_wizard-form.html" %}
+{% set title = 'What is the title of a movie you’ve watched?' %}
+
+{% block form %}
+  {{ movieId }}
+
+  {{ govukInput({
+    label: {
+      text: title,
+      classes: "govuk-label--xl",
+      isPageHeading: true
+    }
+  } | decorateFormAttributes(['example-list', movieId, 'title']) ) }}
+{% endblock %}

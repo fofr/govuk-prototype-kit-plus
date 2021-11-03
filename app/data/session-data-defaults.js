@@ -18,7 +18,12 @@ Example usage:
 */
 
 module.exports = {
-
-  // Insert values here
-
+  thing: 'Here’s a dynamic thing',
+  cases: {
+    ABC: {
+      details: {
+        name: 'Dylan Adam Armstrong'
+      }
+    }
+  }
 }

@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% set title = 'Adding items' %}
+{% block pageTitle %}{{ title }}{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">{{ title }}</h1>
+    </div>
+  </div>
+
+  {% if data['example-list'] | length > 0 %}
+  <h2 class="govuk-heading-l">Movies you’ve watched</h2>
+  <table class="govuk-table">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th class="govuk-table__header">Title</th>
+        <th class="govuk-table__header">Year</th>
+        <th class="govuk-table__header">Rating</th>
+        <th class="govuk-table__header">Action</th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      {% for key, item in data['example-list'] %}
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">{{ item.title }}</td>
+        <td class="govuk-table__cell">{{ item.year }}</td>
+        <td class="govuk-table__cell">{{ item.rating }}</td>
+        <td class="govuk-table__cell"><a href="/example-list/{{ key }}/title">Change</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endif %}
+
+  {{ govukButton({
+    text: "Add a movie",
+    href: "/example-list/start"
+  }) }}
+{% endblock %}
